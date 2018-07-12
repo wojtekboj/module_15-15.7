@@ -1,1 +1,1 @@
-Zadanie 15.7
+Link do Zadania 15.7  https://wojtekboj.github.io/module_15-15.7/index.html
