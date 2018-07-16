@@ -29,7 +29,6 @@ class Stopwatch extends React.Component {
     step() {
         if (!this.running) return;
         this.calculate();
-        this.print();
     }
 
     calculate() {
@@ -60,20 +59,13 @@ class Stopwatch extends React.Component {
                 <div className="stopwatch">
                     {this.format(this.state.times)}
                 </div>
-                <ul id="results">
-                    {this.state.results.map((result, index) => <li key={index}>{result}</li>)}    
-                </ul>
             </div>
         );
     }
 }
 
-const Button = (props) => ( <
-    button onClick = {
-        props.onClick
-    } > {
-        props.children
-    } < /button>
+const Button = (props) => (
+    <button onClick = {props.onClick} > {props.children} </button>
 );
 
 function pad0(value) {
