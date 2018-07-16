@@ -59,6 +59,9 @@ class Stopwatch extends React.Component {
                 <div className="stopwatch">
                     {this.format(this.state.times)}
                 </div>
+                <ul id="results">
+                    {this.state.results.map((result, index) => <li key={index}>{result}</li>)}    
+                </ul>
             </div>
         );
     }
