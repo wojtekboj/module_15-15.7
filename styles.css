@@ -2,7 +2,7 @@ body {
     text-align: center;
 }
 
-.button {
+button {
     display: inline-block;
     padding: 11px 50px;
     max-width: 100%;
@@ -23,8 +23,8 @@ body {
     user-select: none;
 }
 
-.button:hover,
-.button:active {
+button:hover,
+button:active {
     color: #02ac46;
     background-color: #fff;
 }

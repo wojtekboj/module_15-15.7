@@ -97,12 +97,12 @@ var Stopwatch = function (_React$Component) {
                     "nav",
                     { className: "controls" },
                     React.createElement(
-                        Button,
+                        "button",
                         { onClick: this.start.bind(this) },
                         "Start"
                     ),
                     React.createElement(
-                        Button,
+                        "button",
                         { onClick: this.stop.bind(this) },
                         "Stop"
                     )
@@ -130,7 +130,7 @@ var Stopwatch = function (_React$Component) {
     return Stopwatch;
 }(React.Component);
 
-var Button = function Button(props) {
+var button = function button(props) {
     return React.createElement(
         "button",
         { onClick: props.onClick },

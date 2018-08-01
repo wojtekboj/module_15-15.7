@@ -61,13 +61,12 @@ class Stopwatch extends React.Component {
         clearInterval(this.watch);
     }
 
-
     render() {
         return (
             <div>
             <nav className="controls">
-                <Button onClick={this.start.bind(this)}>Start</Button>
-                <Button onClick={this.stop.bind(this)}>Stop</Button>
+                <button onClick={this.start.bind(this)}>Start</button>
+                <button onClick={this.stop.bind(this)}>Stop</button>
             </nav>
              <div className="stopwatch">
                 {this.format(this.state.times)}
@@ -80,7 +79,7 @@ class Stopwatch extends React.Component {
     }
 }
 
-const Button = (props) => (
+const button = (props) => (
     <button onClick = {props.onClick} > {props.children} </button>
 );
 
