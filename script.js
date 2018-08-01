@@ -2,7 +2,14 @@ class Stopwatch extends React.Component {
     constructor(props) {
         super(props);
         this.running = false;
-        this.reset();
+        this.state = {
+            times: {
+                minutes: 0,
+                seconds: 0,
+                miliseconds: 0
+            },
+            results: []
+        };
     }
 
     reset() {
@@ -32,15 +39,21 @@ class Stopwatch extends React.Component {
     }
 
     calculate() {
-        this.times.miliseconds += 1;
-        if (this.times.miliseconds >= 100) {
-            this.times.seconds += 1;
-            this.times.miliseconds = 0;
+        const times = Object.assign({}, this.state.times);
+
+        times.miliseconds = this.state.times.miliseconds + 1;
+
+        if (this.state.times.miliseconds >= 100) {
+            times.seconds = this.state.times.seconds + 1;
+            times.miliseconds = 0;
         }
-        if (this.times.seconds >= 60) {
-            this.times.minutes += 1;
-            this.times.seconds = 0;
+
+        if (this.state.times.seconds >= 60) {
+            times.minutes = this.state.times.minutes + 1;
+            times.seconds = 0;
         }
+
+        this.setState({times});
     }
 
     stop() {
@@ -52,16 +65,16 @@ class Stopwatch extends React.Component {
     render() {
         return (
             <div>
-                <nav className="controls">
-                    <Button onClick={this.start.bind(this)}>Start</Button>
-                    <Button onClick={this.stop.bind(this)}>Stop</Button>
-                </nav>
-                <div className="stopwatch">
-                    {this.format(this.state.times)}
-                </div>
-                <ul id="results">
-                    {this.state.results.map((result, index) => <li key={index}>{result}</li>)}    
-                </ul>
+            <nav className="controls">
+                <Button onClick={this.start.bind(this)}>Start</Button>
+                <Button onClick={this.stop.bind(this)}>Stop</Button>
+            </nav>
+             <div className="stopwatch">
+                {this.format(this.state.times)}
+            </div>
+            <ul id="results">
+                {this.state.results.map((result, index) => <li key={index}>{result}</li>)}
+            </ul>
             </div>
         );
     }
@@ -80,4 +93,4 @@ function pad0(value) {
 }
 
 const appRoot = document.getElementById('app');
-ReactDOM.render( < Stopwatch / > , appRoot);
+ReactDOM.render( <Stopwatch /> , appRoot);
